@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+---
+
+<BaseLayout title="Francois Gerber - Projects">
+  <div>
+    <div class="text-3xl w-full font-bold mb-5">Biggest Projects</div>
+  </div>
+  <HorizontalCard
+    title="Artemis/Apollo Web Crawling and Processing"
+    desc="I was responsible for the development and maintenince of the various systems inside the Meta Team. These applications were used to dynamicly setup web crawlers, scrape the desired websites and using user generated pipelines, process and distribute the data to the relevant stakeholders in a near realtime manner. Our data was used in every aspect of the Marketplaces landscape inside the various businesses inside Ringier AG."
+    badge="Current"
+    tags={["C#", "Vue", "React", "Python", "Docker", "AWS", "MongoDB"]}
+  />
+
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="(iRIS) Refinery Integration Suite"
+    desc="Francois was responsible for the development, support and release of the Refinery Integration Suite or iRIS for short. This application is a modernization of all the old legacy applications at the Precious Metals Refinery. The app was built on modern web development technologies with proper relation databases and a micro service architecture. The application is used in every aspect of the refinery processes and makes reporting easier as there were many standalone applications on site in the past and iRIS is one complete platform. The application also integrates with the marketing team in England as well as on site hardware e.g., Scales, scanners, label printers, PLC’s, Engravers and more to come. "
+    badge="3 Years (2022)"
+    tags={["C#", "Angular", "Azure", "MS SQL", "Arduino"]}
+  />
+
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Source Rewards"
+    desc="Francois was responsible for the development and release of the Source Rewards application, used by protection services at all major Anglo American sites for the collection of information and payments to informants. The application changed how protection services used to only collect information on a paper based system to a web based system which allows all users easy access to the relevant information as soon as it is collected."
+    badge="1 Year (2020)"
+    tags={["C#", "Angular", "Azure", "MS SQL"]}
+  />
+
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Operational Intelligence Suite"
+    desc="Francois was responsible for the development and release of the Operational Intelligence Suite, which was released to 12 different sites during the year. The App was built on AngularJS, .Net Web API Service and a MS SQL database. A mine would monitor their environmental and occupational hygiene sensors using the OiS in real time and configure everything using the App. Integration with the sensors include the OSI Soft Pi Historian, Wonderware, ETL’s with manual excel data and using a custom email listener. The project received the Health and Safety Software Award of 2018 in the mining industry."
+    badge="2 Years (2019)"
+    tags={["C#", "Angular", "Azure", "MS SQL"]}
+  />
+
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Visual Business"
+    desc="Francois was responsible for the development of the Visual Business Application. Enterprise Architects use the application to capture all relevant KPI’s and their metadata, create relationship trees with the KPI’s and implement the KPI’s at clients. The data can then be used to generate Power BI reports to present to the Clients. When the metadata of the client needs to be updated, the reports automatically refreshes the data to show progress of the Business in a Visual manner."
+    badge="2 Years (2019)"
+    tags={["Nodejs", "Angular", "MongoDB", "Docker","Azure"]}
+  />
+
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Offline Capture "
+    desc="Francois was responsible for enhancements to the offline capture mobile application. The system is used to capture questionnaires remotely (without an internet connection) and then uploading the information to the server. The app was written using Apache Cordova and JavaScript with Angular JS."
+    badge="1 Month (2016)"
+    tags={["Cordova", "Angular", "MS SQL", "TypeScript"]}
+  />
+</BaseLayout>

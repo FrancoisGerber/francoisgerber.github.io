@@ -1,0 +1,127 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+---
+
+<BaseLayout title="Francois Gerber - About">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">About Me</div>
+  </div>
+
+  <div class="mb-10 text-justify">
+    I am a determined Software Developer who is passionate about my work. I
+    enjoy solving problems, furthering my knowledge in my field and is
+    passionate about learning something new every day. I strive to achieve the
+    best results in the work I am tasked with.<br />
+    I have knowledge in Data Driven Software Solutions and specializes in the .NET
+    Core and Framework Web Stack.<br />
+    I enjoy working both individually and in teams, is always willing to learn and
+    finds pleasure in assisting others achieve their goals. I identify and resolve
+    problems quickly, am solutions driven and stands out as a leader.<br />
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Details</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLineElement title="Full Names" subtitle="Francois Gerber" />
+    <TimeLineElement title="Location" subtitle="Flick en Flac, Mauritius" />
+    <TimeLineElement title="Gender" subtitle="Male" />
+    <TimeLineElement title="Marital Status" subtitle="Married" />
+    <TimeLineElement
+      title="Transport"
+      subtitle="Own Vehicle and valid Code B drivers license"
+    />
+    <TimeLineElement
+      title="Home Language"
+      subtitle="Afrikaans (Strong/Fluent: Reading, Written, Spoken – Business Level)"
+    />
+    <TimeLineElement
+      title="Other Languages"
+      subtitle="English (Strong/Fluent: Reading, Written,Spoken – Business Level)"
+    />
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Education</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLineElement
+      title="Tertiary: MCSD"
+      subtitle="2013 to 2015 at WW.IT-IQ Training & Solutions"
+    />
+
+    <TimeLineElement
+      title="High School: Matric (Grade 12)"
+      subtitle="2008 to 2012 at High School Lydenburg"
+    />
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Experience</div>
+  </div>
+
+  <div class="time-line-container mb-10">
+    <TimeLineElement
+      title="Senior .Net Full Stack Developer"
+      subtitle="From 2022 at Ringier South Africa"
+      desc="While working at Ringier SA, I contributed towards an internal dynamic crawling solution, used for Market Intelligence and data collection in the Marketplaces space of the company. I used various web technologies including .NET core, python, AWS, NodeJs, Vue and React frontend frameworks."
+    />
+    <TimeLineElement
+      title="Software Developer"
+      subtitle="From 2015 till 2022 at BlueMonday PTY (LTD)"
+      desc="While working at Blue Monday, I worked on various business solutions for clients and internal tools and systems. I gained experience in various web technologies including Angular, Ionic, Blazor.NET and backend technologies like ASP.NET Web API, WCF and NodeJS."
+    />
+    <TimeLineElement
+      title="Student Developer"
+      subtitle="From 2013 till 2015 at WW.IT-IQ Training & Solutions"
+      desc="While studying, I worked on programs assigned to me by my lecturers and other programs I thought businesses/people could or would like to use, as well as projects commissioned by clients."
+    />
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Certifications</div>
+  </div>
+
+  <ul class="list-disc mx-6 mb-10 grid gap-2">
+    <li>Microsoft® Certified SQL Specialist</li>
+    <li>Microsoft® Certified Professional</li>
+    <li>Microsoft® Certified Technology Associate – Networking Fundamentals</li>
+    <li>Microsoft® Certified Technology Specialist – Accessing Data</li>
+    <li>Microsoft® Certified Specialist – C# & HTML5, CSS3 & JavaScript</li>
+    <li>
+      MCSD – Microsoft® Certified Solutions Developer – Web Applications,
+      including HTML5, ASP.Net MVC, Windows Azure (Cloud Development)
+    </li>
+    <li>MCSD - Microsoft® Certified Solutions Developer – App Builder</li>
+  </ul>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Skills</div>
+  </div>
+
+  <ul class="list-disc md:columns-5 columns-2 mx-6">
+    <li>Web API</li>
+    <li>.NET Core</li>
+    <li>MS SQL Server</li>
+    <li>MongoDB</li>
+    <li>ElasticSearch</li>
+    <li>Angular</li>
+    <li>Vue</li>
+    <li>React</li>
+    <li>Svelte</li>
+    <li>Git</li>
+    <li>GitHub</li>
+    <li>Azure Devops</li>
+    <li>Nodejs</li>
+    <li>Deno</li>
+    <li>C#</li>
+    <li>Ionic/Cordova</li>
+    <li>Blazor</li>
+    <li>ASP.NET</li>
+    <li>Linux</li>
+    <li>AWS</li>
+  </ul>
+</BaseLayout>
