@@ -1,6 +1,6 @@
 {
-  "name": "Francois Gerber Online Personal Website",
-  "description": "Version 2.0 of Francois Gerber Online built in Astro.",
+  "name": "Francois Gerber Online Blog",
+  "description": "Version 2.0 of Online Blog built in Astro.",
   "type": "module",
   "version": "2.0.0",
   "private": true,
