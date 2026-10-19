@@ -80,14 +80,55 @@ them, so nothing appears on the site, in the sitemap, or in the nav — but the 
 use. To bring the store back: `git mv src/pages/_store src/pages/store`, rebuild, and replace the demo
 item with real ones.
 
-## The resume PDF
+## The resume PDF — how it was built (read this before touching it)
 
-`public/FrancoisGerberResume.pdf` is generated, not hand-edited: the source is
-`resume/FrancoisGerberResume.html` (print CSS, A4, one page). Regenerate with a headless browser —
-serve the folder (`python3 -m http.server` inside `resume/`), then
-`cdp("Page.printToPDF", printBackground=True, preferCSSPageSize=True)` and write the base64 back to
-`public/FrancoisGerberResume.pdf`. Keep it to one page; the previous CV is backed up under
-`~/Documents/Resume-Backups/`.
+`public/FrancoisGerberResume.pdf` is **generated**, never hand-edited. Source of truth for the CV is
+`resume/FrancoisGerberResume.html`; the portrait is `resume/assets/portrait.jpg`.
+
+**Pipeline**
+
+1. Edit `resume/FrancoisGerberResume.html`. Layout is two A4 `.page` sections (210×297mm, `display:flex`):
+   a 40%-wide dark sidebar (`#2e2e2e`) with the portrait, the name overlaid in white and boxed
+   `ABOUT ME / CONTACT / TOP SKILLS / INTERESTS` headings, plus a 60% main column with serif uppercase
+   section headings and a hairline rule. Page 1 = education, work experience, certifications, skills;
+   page 2 = Enterprise Solutions.
+2. Serve the folder: `python3 -m http.server 8099` **inside `resume/`** (background), because the page
+   references `assets/portrait.jpg` relatively.
+3. Print with the automation browser:
+   `cdp("Page.printToPDF", printBackground=True, preferCSSPageSize=True)`, base64-decode into
+   `public/FrancoisGerberResume.pdf`.
+4. Kill the server **by PID** (`kill <pid>`); never `pkill -f "http.server"` — the pattern matches the
+   agent's own shell command line and takes the session down.
+5. `npm run build` then check the PDF itself: `pdfinfo` for the page count, `pdftoppm -r 110 -png` to
+   render pages, and **look at the images** — clipping at the page edge is invisible in the HTML and
+   obvious in the render.
+
+**Content is mirrored from the site by hand — keep it that way**
+
+There is deliberately no generator: the CV text was copied from the site source so the two agree, but
+nothing keeps them in sync. When either changes, re-copy and re-verify:
+
+- project cards → `src/pages/projects.astro` (title, `desc`, `badge`; all seven, Source Rewards included)
+- experience → `src/pages/about.astro` `<TimeLineElement>` title/subtitle/desc, using the site's exact
+  date strings ("2022 to present · Ringier South Africa")
+- skills → the 28-item `<ul class="list-disc md:columns-5 …">` list, exact labels (the long ones span
+  two grid columns via `.wide`)
+- certifications → the About page's list; contact/education → the same page
+- sidebar "About me" → the **home intro** sentences (`index.astro`), not the full About paragraphs — the
+  owner explicitly does not want the long About text in the PDF
+
+Verification that actually catches drift: compare whitespace-insensitively
+(`re.sub(r'\s+','',text)`) between each site string and the CV source. Do **not** verify against
+`pdftotext -layout` — the sidebar column interleaves into the main column's lines and every long string
+appears "missing".
+
+**Design notes** (this layout is the owner's preference — it replaces the old PDF's look, which was
+extracted with `pdfimages` and studied page by page):
+
+- A4, margin 0, two sections of exactly 297mm; anything longer clips silently.
+- Page 1 body 8.4pt / page 2 8.15pt; project entries carry no role line (the site cards have none).
+- Fonts: Georgia for section and project headings, system sans for body — matches the old CV.
+- Backups of previous PDFs live in `~/Documents/Resume-Backups/`.
 
 ## Open items
 
