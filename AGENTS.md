@@ -72,6 +72,14 @@ Commands: `npm run dev -- --port 4321` (HMR), `npm run build`, `npx astro previe
 - The automation browser's `capture_screenshot()` times out after the first capture; use
   `cdp("Page.captureScreenshot", format="png", clip={...})` + base64 to write a PNG instead.
 
+## Parked: the store section
+
+`src/pages/_store/` holds the old Astrofy store pages (`[...page].astro`, `[slug].astro`) and
+`src/content/store/item1.md` is still the demo item. The underscore prefix keeps Astro from routing
+them, so nothing appears on the site, in the sitemap, or in the nav — but the code stays for future
+use. To bring the store back: `git mv src/pages/_store src/pages/store`, rebuild, and replace the demo
+item with real ones.
+
 ## Open items
 
 - **Publish**: merge `profile-refresh` into `main` when he asks — GitHub Pages then deploys.
