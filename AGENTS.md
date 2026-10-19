@@ -42,7 +42,7 @@ Commands: `npm run dev -- --port 4321` (HMR), `npm run build`, `npx astro previe
    the same title block (`src/components/PageHeader.astro`: `h1` 48px, `pb-10 mt-5`, used by About,
    Projects, Blog and Store — Store previously had no title), `main` is `w-full` so titles start at
    the same x.
-6. **Home warmth**: emoji string `🧑‍💻 📖 🎮 🌱 🏝️ ☕` inline at the start of the intro paragraph,
+6. **Home warmth**: emoji string (laptop, book, gamepad, seedling, island, coffee) inline at the start of the intro paragraph,
    `🚀` on the tagline. No palm emoji in the body text.
 
 ## Decisions worth keeping
@@ -56,6 +56,10 @@ Commands: `npm run dev -- --port 4321` (HMR), `npm run build`, `npx astro previe
   2018 award).
 
 ## Traps already hit
+
+- Emoji carrying a zero-width joiner (e.g. the person-at-laptop glyph) inside THIS file trips the
+  session-start injection check and the file is skipped — a session then has to read it manually.
+  Keep ZWJ glyphs out of AGENTS.md; describe them instead.
 
 - Deleting the last blog post deletes `src/content/blog/` and breaks the build until `.gitkeep` exists.
 - `[WARN] The collection "blog" does not exist or is empty` is expected with zero posts — leave it.
