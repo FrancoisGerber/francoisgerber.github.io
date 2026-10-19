@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Francois Gerber — CV</title>
+<style>
+  @page { size: A4; margin: 11mm 13mm; }
+  :root { --ink:#111; --muted:#555; --rule:#d8d8d8; --accent:#111; }
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; }
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: var(--ink); font-size: 9.5pt; line-height: 1.33;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  h1 { font-size: 22pt; letter-spacing: -0.02em; margin: 0 0 2px; }
+  .role { font-size: 10.6pt; font-weight: 600; margin: 0 0 5px; }
+  .contact { font-size: 8.4pt; color: var(--muted); margin-bottom: 8px; }
+  .contact a { color: var(--muted); text-decoration: none; white-space: nowrap; }
+  .contact span:not(:last-child)::after { content: " · "; }
+  h2 {
+    font-size: 9.2pt; text-transform: uppercase; letter-spacing: .14em;
+    margin: 10px 0 4px; padding-bottom: 2px; border-bottom: 1px solid var(--rule);
+  }
+  p { margin: 0 0 4px; }
+  .job { margin-bottom: 6px; }
+  .job-head { display: flex; justify-content: space-between; gap: 12px; }
+  .job-title { font-weight: 700; }
+  .job-meta { color: var(--muted); font-size: 9pt; white-space: nowrap; }
+  .job-sub { color: var(--muted); font-size: 9.2pt; margin-bottom: 2px; }
+  ul { margin: 3px 0 0 16px; padding: 0; }
+  li { margin-bottom: 1px; }
+  .proj { margin-bottom: 4px; }
+  .proj b { font-weight: 700; }
+  .proj .tag { color: var(--muted); font-size: 9pt; }
+  .cols { display: flex; gap: 18px; }
+  .cols > div { flex: 1; }
+  .skills { font-size: 8.9pt; }
+  .skills b { font-weight: 700; }
+  .small { font-size: 8.6pt; color: var(--muted); }
+</style>
+</head>
+<body>
+
+  <h1>Francois Gerber</h1>
+  <div class="role">Software Engineer — data pipelines, web crawling &amp; LLM extraction</div>
+  <div class="contact">
+    <span>Flic en Flac, Mauritius</span>
+    <span>fagerber123@gmail.com</span>
+    <span>+230 5823 9682</span>
+    <span><a href="https://francoisgerber.github.io">francoisgerber.github.io</a></span>
+    <span><a href="https://www.linkedin.com/in/francois-antonie-gerber/">linkedin.com/in/francois-antonie-gerber</a></span>
+    <span><a href="https://github.com/FrancoisGerber">github.com/FrancoisGerber</a></span>
+  </div>
+
+  <p>I build systems that turn the open web into data a business can act on: LLM-powered crawling
+  inside Palantir Foundry processing up to 5,000 company websites a day, dynamic scraping platforms
+  in Python before that, and eight years of .NET full-stack delivery before that. I own the pipeline
+  end to end — extraction quality, reliability at volume, and the data model the business consumes.</p>
+
+  <h2>Experience</h2>
+
+  <div class="job">
+    <div class="job-head">
+      <div class="job-title">Ringier South Africa — Senior .NET Full Stack Developer</div>
+      <div class="job-meta">2022 – present</div>
+    </div>
+    <div class="job-sub">Market intelligence and marketplaces data</div>
+    <ul>
+      <li>Own the crawling and processing platform behind Ringier's marketplaces data: user-configurable
+        pipelines that scrape, process and distribute intelligence in near real time across multiple
+        countries and clients.</li>
+      <li>Since 2026, build the LLM-powered crawling system inside Palantir Foundry — identification,
+        extraction and pagination at up to 5,000 company websites a day, on Pipelines, Datasets and
+        Workshop applications.</li>
+      <li>Stack: Python, C#, .NET, AWS, Scrapy, Playwright, Puppeteer, Vue, React, MongoDB.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <div class="job-title">BlueMonday (Pty) Ltd — Software Developer</div>
+      <div class="job-meta">2015 – 2022</div>
+    </div>
+    <ul>
+      <li>Delivered business systems for clients and internal tools across the .NET stack: ASP.NET, .NET
+        Core, Web API, WCF, Blazor, plus Angular, Ionic and Node.js on the front end, running on Azure.</li>
+      <li>Worked end to end from requirements to support, including integrations with on-site hardware
+        (scales, scanners, label printers, PLCs) for industrial clients.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <div class="job-title">WW.IT-IQ Training &amp; Solutions — Student Developer</div>
+      <div class="job-meta">2013 – 2015</div>
+    </div>
+    <ul>
+      <li>Built programs for coursework and client-commissioned projects while completing the MCSD
+        qualification.</li>
+    </ul>
+  </div>
+
+  <h2>Selected projects</h2>
+
+  <div class="proj"><b>Hades/Olympus</b> <span class="tag">— LLM crawler, 2026</span><br />
+    Multi-country, multi-client system that identifies, extracts and paginates job listings with an
+    LLM across up to 5,000 sites daily. Python, Palantir Foundry, Jina, ScrapingBee, Scrapy.</div>
+
+  <div class="proj"><b>Artemis/Apollo</b> <span class="tag">— crawling platform, 4 years</span><br />
+    Crawler setup and user-generated processing pipelines distributing marketplaces data in near real
+    time. C#, Vue, React, Python, Docker, AWS, MongoDB, Scrapy, Playwright.</div>
+
+  <div class="proj"><b>iRIS — Refinery Integration Suite</b> <span class="tag">— 3 years</span><br />
+    Consolidated a precious-metals refinery's standalone tools into one platform, integrated with
+    on-site hardware (scales, scanners, label printers, PLCs, engravers). C#, Angular, Azure, MS SQL.</div>
+
+  <div class="proj"><b>Operational Intelligence Suite</b> <span class="tag">— 2 years, award winner</span><br />
+    Real-time sensor monitoring at 12 mining sites, integrated with OSIsoft PI and Wonderware. Won the
+    2018 Health and Safety Software Award. AngularJS, .NET Web API, MS SQL.</div>
+
+  <h2>Skills</h2>
+  <div class="skills">
+    <b>Languages:</b> Python, C#, SQL, Go, TypeScript, JavaScript<br />
+    <b>Data &amp; crawling:</b> Palantir Foundry (Pipelines, Datasets, Workshop), LLM extraction &amp;
+    prompting, Scrapy, Playwright, Puppeteer, MongoDB, ElasticSearch, Redis<br />
+    <b>Web:</b> .NET, ASP.NET, Blazor, Angular, Vue, React, Node.js<br />
+    <b>Platforms:</b> AWS, Azure, Docker, CI/CD, Linux, distributed systems, architecture
+  </div>
+
+  <div class="cols" style="margin-top:12px">
+    <div>
+      <h2 style="margin-top:0">Education</h2>
+      <p><b>MCSD</b> — WW.IT-IQ Training &amp; Solutions, 2013 – 2015<br />
+      <span class="small">Microsoft Certified Solutions Developer, Web Applications (HTML5, ASP.NET MVC,
+      Azure) and App Builder</span></p>
+      <p><b>Matric (Grade 12)</b> — High School Lydenburg, 2008 – 2012</p>
+    </div>
+    <div>
+      <h2 style="margin-top:0">Certifications</h2>
+      <p class="small">MCSD Web Applications · MCSD App Builder · Microsoft Certified SQL Specialist ·
+      Microsoft Certified Professional · MCTA Networking Fundamentals · MCTS Accessing Data ·
+      Microsoft Specialist C# &amp; HTML5/CSS3/JavaScript · Udemy: Go, Python, Prompt Engineering for AI
+      (2025)</p>
+    </div>
+  </div>
+
+  <h2>Interests</h2>
+  <p class="small">Gaming (Nintendo and PC), reading, gardening, the outdoors.</p>
+
+</body>
+</html>

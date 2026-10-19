@@ -80,6 +80,15 @@ them, so nothing appears on the site, in the sitemap, or in the nav — but the 
 use. To bring the store back: `git mv src/pages/_store src/pages/store`, rebuild, and replace the demo
 item with real ones.
 
+## The resume PDF
+
+`public/FrancoisGerberResume.pdf` is generated, not hand-edited: the source is
+`resume/FrancoisGerberResume.html` (print CSS, A4, one page). Regenerate with a headless browser —
+serve the folder (`python3 -m http.server` inside `resume/`), then
+`cdp("Page.printToPDF", printBackground=True, preferCSSPageSize=True)` and write the base64 back to
+`public/FrancoisGerberResume.pdf`. Keep it to one page; the previous CV is backed up under
+`~/Documents/Resume-Backups/`.
+
 ## Open items
 
 - **Publish**: merge `profile-refresh` into `main` when he asks — GitHub Pages then deploys.
