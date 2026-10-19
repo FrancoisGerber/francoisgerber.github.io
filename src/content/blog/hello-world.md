@@ -2,6 +2,7 @@
 title: "Hello, world"
 description: "A placeholder post so we can see how the blog looks: typography, header, date line and listing card."
 pubDate: 2026-10-19
+heroImage: "/blog/hero-placeholder.jpg"
 ---
 
 This is a dummy post. It exists only to check how the blog section renders, and it should be
