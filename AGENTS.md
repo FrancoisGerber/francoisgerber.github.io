@@ -86,3 +86,43 @@ Commands: `npm run dev -- --port 4321` (HMR), `npm run build`, `npx astro previe
 - Branch per change off `main`; commit messages in prose describing the change.
 - `npm run build` green is the floor, not the proof — check the rendered page too.
 - Push only when asked; never open a PR unless asked.
+
+## Blog post structure — follow this exactly
+
+Every post is `src/content/blog/<slug>.md`. One image only (the hero), never an inline image, and an
+audio player as the **first element of the body**, above the intro paragraph.
+
+```markdown
+---
+title: "Post title"
+description: "One sentence that shows on the listing card and in the RSS feed."
+pubDate: 2026-10-19
+heroImage: "/blog/<slug>.jpg"
+---
+<audio controls preload="metadata" src="/blog/<slug>-audio.mp3" class="w-full my-4"></audio>
+
+Opening paragraph — no heading above it, no greeting, no "in this post I will".
+
+## Section heading
+
+Body copy. Short paragraphs.
+
+## Another section
+
+More body copy.
+```
+
+Rules:
+
+- **Exactly one image**: the `heroImage` file in `public/blog/`, referenced by absolute path. It renders
+  as the listing thumbnail and as the banner above the title. No `![]()` inline images, no second file.
+- **Audio comes first in the body** — the `<audio …>` line sits directly under the frontmatter, above
+  the first paragraph. Keep the attributes as written (`controls preload="metadata"` +
+  `class="w-full my-4"`); the file is `public/blog/<slug>-audio.mp3`.
+- **Producing the audio**: narrate the post text with Hermes TTS (Piper, British male — `text_to_speech`
+  in the default profile), then convert for the web:
+  `ffmpeg -y -v error -i <tts.ogg> -codec:a libmp3lame -b:a 64k -ar 44100 public/blog/<slug>-audio.mp3`.
+  Strip markdown from the script and skip code blocks; read headings as plain sentences.
+- **Structure below the intro**: `##` sections only (the post title is the `h1`), no `#` in the body.
+- **Listing/index** picks posts up from frontmatter alone; nothing else to register.
+- Full working example: `src/content/blog/hello-world.md` (dummy — delete or replace before publishing).
