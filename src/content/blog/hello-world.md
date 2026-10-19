@@ -8,6 +8,8 @@ heroImage: "/blog/hero-placeholder.jpg"
 This is a dummy post. It exists only to check how the blog section renders, and it should be
 deleted (or replaced) before anything is published.
 
+<audio controls preload="metadata" src="/blog/hello-world-audio.mp3" class="w-full my-4"></audio>
+
 ## Why this page exists
 
 The blog was emptied while the profile was rewritten, which left nothing to look at. A single
