@@ -3,7 +3,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 import { getCollection } from "astro:content";
 
 
-export async function get(context) {
+export async function GET(context) {
 
   const blog = await getCollection('blog');
 
@@ -18,7 +18,7 @@ export async function get(context) {
       customData: post.data.customData,
       // Compute RSS link from post `slug`
       // This example assumes all posts are rendered as `/blog/[slug]` routes
-      link: `/blog/${post.slug}/`,
+      link: `/blog/${post.id}/`,
     })),
     // items: import.meta.glob('../content/**/*.md'),
   });
