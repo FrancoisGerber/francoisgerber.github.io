@@ -21,65 +21,58 @@
 
   /* ---------- side panel ---------- */
   .side { width: 40%; background: #2e2e2e; color: #f2f2f2; display: flex; flex-direction: column; }
-  .hero { position: relative; height: 128mm; overflow: hidden; }
+  .hero { position: relative; height: 120mm; overflow: hidden; }
   .hero img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; }
   .hero .veil {
     position: absolute; inset: auto 0 0 0; height: 58%;
     background: linear-gradient(to top, rgba(24,24,24,0.94), rgba(24,24,24,0.0));
   }
-  .hero .name { position: absolute; left: 7mm; right: 7mm; bottom: 8mm; color: #fff; }
-  .hero .name b {
-    display: block; font-size: 25pt; line-height: 1.02; font-weight: 700; letter-spacing: -0.01em;
-  }
-  .hero .name span { display: block; margin-top: 2mm; font-size: 9.4pt; font-weight: 400; color: #e8e8e8; }
+  .hero .name { position: absolute; left: 7mm; right: 7mm; bottom: 7mm; color: #fff; }
+  .hero .name b { display: block; font-size: 24pt; line-height: 1.02; font-weight: 700; letter-spacing: -0.01em; }
+  .hero .name span { display: block; margin-top: 1.8mm; font-size: 9.2pt; color: #e8e8e8; }
 
-  .side-body { padding: 6mm 7mm 5mm; text-align: center; flex: 1; }
+  .side-body { padding: 5.5mm 6.5mm 5mm; text-align: center; flex: 1; }
   .side h3 {
-    font-size: 10.5pt; font-weight: 400; letter-spacing: .06em; text-transform: uppercase;
-    border: 1px solid #f2f2f2; padding: 1.4mm 2mm; margin: 0 auto 3.5mm; width: 82%;
+    font-size: 10pt; font-weight: 400; letter-spacing: .06em; text-transform: uppercase;
+    border: 1px solid #f2f2f2; padding: 1.3mm 2mm; margin: 0 auto 3mm; width: 84%;
   }
-  .side .block { margin-bottom: 5mm; }
-  .side p { font-size: 8.2pt; line-height: 1.4; margin: 0 0 1.6mm; }
+  .side .block { margin-bottom: 4.2mm; }
+  .side p { font-size: 7.9pt; line-height: 1.38; margin: 0 0 1.4mm; }
   .side a { color: #9fc8ff; text-decoration: none; }
-  .side ul { list-style: none; margin: 0; padding: 0; font-size: 8.6pt; line-height: 1.5; }
+  .side ul { list-style: none; margin: 0; padding: 0; font-size: 8.3pt; line-height: 1.45; }
 
   /* ---------- main column ---------- */
-  .main { width: 60%; padding: 9mm 10mm 6mm 9mm; }
+  .main { width: 60%; padding: 8.5mm 9.5mm 6mm 8.5mm; }
   .main h2 {
     font-family: Georgia, "Times New Roman", serif; font-weight: 400;
-    font-size: 15.5pt; text-transform: uppercase; letter-spacing: .01em;
-    margin: 0 0 1mm; padding-bottom: 1.8mm; border-bottom: 1.2px solid #d3d3d3;
+    font-size: 15pt; text-transform: uppercase; letter-spacing: .01em;
+    margin: 0 0 1mm; padding-bottom: 1.6mm; border-bottom: 1.2px solid #d3d3d3;
   }
-  .main h2:not(:first-child) { margin-top: 4.8mm; }
-  .main h2 + * { margin-top: 2.8mm; }
-  .org { margin-bottom: 3.2mm; }
-  .org .title { font-size: 10.6pt; font-weight: 600; margin: 0; }
-  .org .meta { font-size: 8.8pt; color: #6c6c6c; margin: .5mm 0 1.2mm; }
-  .main p { font-size: 8.7pt; line-height: 1.42; margin: 0 0 1.8mm; }
-  .main ul { margin: .8mm 0 0 4.5mm; padding: 0; }
-  .main li { font-size: 8.7pt; line-height: 1.38; margin-bottom: .7mm; }
+  .main h2:not(:first-child) { margin-top: 4.4mm; }
+  .main h2 + * { margin-top: 2.4mm; }
+  .org { margin-bottom: 3mm; }
+  .org .title { font-size: 10.2pt; font-weight: 600; margin: 0; }
+  .org .meta { font-size: 8.5pt; color: #6c6c6c; margin: .4mm 0 1mm; }
+  .main p { font-size: 8.4pt; line-height: 1.4; margin: 0 0 1.5mm; }
+  .main ul { margin: .7mm 0 0 4mm; padding: 0; }
+  .main li { font-size: 8.4pt; line-height: 1.34; margin-bottom: .5mm; }
 
-  .skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1mm 3mm; font-size: 8.3pt; color: #3a3a3a; }
+  .skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1mm 3mm; font-size: 8.1pt; color: #3a3a3a; }
   .skills div { white-space: nowrap; }
+  .skills .wide { grid-column: span 2; }
 
-  .proj { margin-bottom: 3.8mm; }
+  .proj { margin-bottom: 4mm; }
   .proj h4 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: 11.4pt; margin: 0; }
-  .proj .role-line { font-size: 8.8pt; color: #3f3f3f; margin: .5mm 0 .4mm; }
-  .proj .dur { font-size: 8.5pt; color: #6c6c6c; margin-bottom: 1mm; }
-
-  /* page 2 breathes more: fewer blocks, so scale the project entries up */
-  .page2 .proj { margin-bottom: 6.2mm; }
-  .page2 .proj h4 { font-size: 12.6pt; }
-  .page2 .proj .role-line { font-size: 9.3pt; }
-  .page2 .proj .dur { font-size: 9pt; margin-bottom: 1.6mm; }
-  .page2 .main p { font-size: 9.3pt; line-height: 1.5; }
-  .page2 .main h2 { font-size: 16.5pt; }
+  .proj .dur { font-size: 8.4pt; color: #6c6c6c; margin: .4mm 0 1mm; }
+  .page2 .proj { margin-bottom: 3.1mm; }
+  .page2 .proj h4 { font-size: 11pt; }
+  .page2 .main p { font-size: 8.15pt; line-height: 1.35; }
 </style>
 </head>
 <body>
 
 <!-- ================= PAGE 1 ================= -->
-<section class="page page2">
+<section class="page">
   <aside class="side">
     <div class="hero">
       <img src="assets/portrait.jpg" alt="Francois Gerber" />
@@ -92,15 +85,14 @@
     <div class="side-body">
       <div class="block">
         <h3>About me</h3>
-        <p>I build systems that turn the open web into data a business can act on.</p>
-        <p>LLM-powered crawling inside Palantir Foundry, at up to 5,000 company websites a day.</p>
-        <p>Dynamic scraping platforms in Python before that, and eight years of .NET full-stack delivery.</p>
-        <p>I own the pipeline end to end: extraction quality, reliability at volume, and the data model the business consumes.</p>
+        <p>LLM-powered crawling inside Palantir Foundry, processing up to 5,000 company websites a day.</p>
+        <p>Dynamic scraping platforms in Python before that, and eight years of .NET full-stack delivery before that.</p>
+        <p>Senior .NET Full Stack Developer at Ringier South Africa, based in Mauritius.</p>
       </div>
 
       <div class="block">
         <h3>Contact</h3>
-        <p>Location: Flic en Flac, Mauritius</p>
+        <p>Location: Flic en Flac, Black River, Mauritius</p>
         <p>Cell: +230 5823 9682</p>
         <p>Email: fagerber123@gmail.com</p>
         <p><a href="https://www.linkedin.com/in/francois-antonie-gerber/">LinkedIn</a></p>
@@ -110,21 +102,24 @@
       <div class="block">
         <h3>Top skills</h3>
         <ul>
+          <li>.NET</li>
+          <li>C#</li>
           <li>Python</li>
-          <li>.NET / C#</li>
           <li>Palantir Foundry</li>
-          <li>LLM Extraction</li>
-          <li>SQL</li>
+          <li>LLM Extraction &amp; Prompting</li>
           <li>Web Scraping</li>
         </ul>
       </div>
 
       <div class="block">
-        <h3>Hobbies</h3>
+        <h3>Interests</h3>
         <ul>
-          <li>Gaming</li>
+          <li>Coding</li>
           <li>Reading</li>
+          <li>Gaming</li>
           <li>Gardening</li>
+          <li>Island life</li>
+          <li>Coffee</li>
         </ul>
       </div>
     </div>
@@ -134,60 +129,62 @@
     <h2>Education</h2>
     <div class="org">
       <p class="title">Tertiary: MCSD</p>
-      <p class="meta">2013 – 2015</p>
-      <p>WW.IT-IQ Training &amp; Solutions — Advanced International Business Systems &amp; Web Development
-        qualification, including the following international certifications:</p>
-      <ul>
-        <li>MCSD — Microsoft® Certified Solutions Developer — Web Applications (HTML5, ASP.NET MVC, Azure)</li>
-        <li>MCSD — Microsoft® Certified Solutions Developer — App Builder</li>
-        <li>Microsoft® Certified SQL Specialist</li>
-        <li>Microsoft® Certified Professional</li>
-        <li>Microsoft Certified Technology Associate — Networking Fundamentals</li>
-        <li>Microsoft Certified Technology Specialist — Accessing Data</li>
-        <li>Microsoft Certified Specialist — C# &amp; HTML5, CSS3 &amp; JavaScript</li>
-      </ul>
+      <p class="meta">2013 to 2015 at WW.IT-IQ Training &amp; Solutions</p>
     </div>
     <div class="org">
       <p class="title">High School: Matric (Grade 12)</p>
-      <p class="meta">2008 – 2012</p>
-      <p>High School Lydenburg. Subjects include English (2nd language), Afrikaans (home language),
-        Mathematics, Hospitality Studies, Business Studies and Accounting.</p>
+      <p class="meta">2008 to 2012 at High School Lydenburg</p>
     </div>
 
     <h2>Work experience</h2>
     <div class="org">
-      <p class="title">Ringier South Africa — Senior .NET Full Stack Developer</p>
-      <p class="meta">2022 – Present</p>
+      <p class="title">Senior .NET Full Stack Developer</p>
+      <p class="meta">2022 to present · Ringier South Africa</p>
       <p>Owner of the crawling and processing platform behind Ringier's marketplaces data: user-configurable
-        pipelines that scrape, process and distribute market intelligence in near real time across multiple
-        countries and clients.</p>
-      <p>Since 2026, building the LLM-powered crawling system inside Palantir Foundry — identification,
-        extraction and pagination at up to 5,000 company websites a day, on Pipelines, Datasets and Workshop
-        applications. Python, C#, AWS, Scrapy, Playwright, Vue, React.</p>
+        pipelines that scrape, process and distribute market intelligence in near real time (C#, Python, AWS,
+        Vue, React, Scrapy). Since 2026, an LLM-powered crawling system inside Palantir Foundry —
+        identification, extraction and pagination across up to 5,000 company websites a day, on Foundry
+        Pipelines, Datasets and Workshop applications.</p>
     </div>
     <div class="org">
-      <p class="title">BlueMonday PTY (LTD) — Software Developer</p>
-      <p class="meta">2015 – 2022</p>
-      <p>Delivered business solutions for clients and internal tools across the .NET stack (ASP.NET, .NET
-        Core, Web API, WCF, Blazor) with Angular, Ionic and Node.js on the front end, running on Azure.
-        Worked end to end, including integrations with on-site industrial hardware.</p>
+      <p class="title">.NET Full Stack Software Developer</p>
+      <p class="meta">From 2015 till 2022 at BlueMonday PTY (LTD)</p>
+      <p>While working at Blue Monday, I worked on various business solutions for clients and internal tools
+        and systems. I gained experience in various web technologies including Angular, Ionic, Blazor.NET and
+        backend technologies like ASP.NET Web API, WCF and NodeJS.</p>
     </div>
     <div class="org">
-      <p class="title">WW.IT-IQ — Student Developer</p>
-      <p class="meta">2013 – 2015</p>
-      <p>Built programs for coursework, personal projects and client-commissioned work while completing the
-        MCSD qualification.</p>
+      <p class="title">Student Developer</p>
+      <p class="meta">From 2013 till 2015 at WW.IT-IQ Training &amp; Solutions</p>
+      <p>While studying, I worked on programs assigned to me by my lecturers and other programs I thought
+        businesses/people could or would like to use, as well as projects commissioned by clients.</p>
     </div>
+
+    <h2>Certifications</h2>
+    <ul>
+      <li>MCSD – Microsoft® Certified Solutions Developer – Web Applications, including HTML5, ASP.Net MVC, Windows Azure (Cloud Development)</li>
+      <li>MCSD – Microsoft® Certified Solutions Developer – App Builder</li>
+      <li>Microsoft® Certified SQL Specialist</li>
+      <li>Microsoft® Certified Professional</li>
+      <li>Microsoft® Certified Technology Associate – Networking Fundamentals</li>
+      <li>Microsoft® Certified Technology Specialist – Accessing Data</li>
+      <li>Microsoft® Certified Specialist – C# &amp; HTML5, CSS3 &amp; JavaScript</li>
+      <li>Go – The Complete Guide – Udemy</li>
+      <li>The Complete Python Developer – Udemy</li>
+      <li>The Complete Prompt Engineering for AI Bootcamp (2025) – Udemy</li>
+    </ul>
 
     <h2>Skills</h2>
     <div class="skills">
-      <div>.NET</div><div>Python</div><div>Go (GoLang)</div><div>SQL</div>
-      <div>C#</div><div>TypeScript</div><div>JavaScript</div><div>Blazor</div>
-      <div>ASP.NET</div><div>Angular</div><div>Vue</div><div>React</div>
-      <div>Node.js</div><div>MongoDB</div><div>ElasticSearch</div><div>Redis</div>
-      <div>Palantir Foundry</div><div>LLM Extraction</div><div>Scrapy</div><div>Playwright</div>
-      <div>AWS</div><div>Azure</div><div>Docker</div><div>CI/CD</div>
-      <div>Linux</div><div>Distributed Systems</div><div>Architecture</div><div>Web Scraping</div>
+      <div>.NET</div><div>C#</div><div>ASP.NET</div><div>Blazor</div>
+      <div>Python</div><div>Go (GoLang)</div><div>TypeScript</div><div>JavaScript</div>
+      <div>SQL</div><div>MongoDB</div><div>ElasticSearch</div><div>Redis</div>
+      <div>Angular</div><div>Vue</div><div>React</div><div>Node.js</div>
+      <div>Palantir Foundry</div><div class="wide">Foundry Pipelines &amp; Datasets</div>
+      <div class="wide">LLM Extraction &amp; Prompting</div>
+      <div class="wide">Web Scraping (Scrapy, Playwright, Puppeteer)</div>
+      <div>Distributed Systems</div><div>Data Modelling</div><div>Docker</div><div>CI/CD</div>
+      <div>AWS</div><div>Azure</div><div>Linux</div><div>Architecture</div>
     </div>
   </div>
 </section>
@@ -206,15 +203,14 @@
     <div class="side-body">
       <div class="block">
         <h3>About me</h3>
-        <p>I build systems that turn the open web into data a business can act on.</p>
-        <p>LLM-powered crawling inside Palantir Foundry, at up to 5,000 company websites a day.</p>
-        <p>Dynamic scraping platforms in Python before that, and eight years of .NET full-stack delivery.</p>
-        <p>I own the pipeline end to end: extraction quality, reliability at volume, and the data model the business consumes.</p>
+        <p>LLM-powered crawling inside Palantir Foundry, processing up to 5,000 company websites a day.</p>
+        <p>Dynamic scraping platforms in Python before that, and eight years of .NET full-stack delivery before that.</p>
+        <p>Senior .NET Full Stack Developer at Ringier South Africa, based in Mauritius.</p>
       </div>
 
       <div class="block">
         <h3>Contact</h3>
-        <p>Location: Flic en Flac, Mauritius</p>
+        <p>Location: Flic en Flac, Black River, Mauritius</p>
         <p>Cell: +230 5823 9682</p>
         <p>Email: fagerber123@gmail.com</p>
         <p><a href="https://www.linkedin.com/in/francois-antonie-gerber/">LinkedIn</a></p>
@@ -224,21 +220,24 @@
       <div class="block">
         <h3>Top skills</h3>
         <ul>
+          <li>.NET</li>
+          <li>C#</li>
           <li>Python</li>
-          <li>.NET / C#</li>
           <li>Palantir Foundry</li>
-          <li>LLM Extraction</li>
-          <li>SQL</li>
+          <li>LLM Extraction &amp; Prompting</li>
           <li>Web Scraping</li>
         </ul>
       </div>
 
       <div class="block">
-        <h3>Hobbies</h3>
+        <h3>Interests</h3>
         <ul>
-          <li>Gaming</li>
+          <li>Coding</li>
           <li>Reading</li>
+          <li>Gaming</li>
           <li>Gardening</li>
+          <li>Island life</li>
+          <li>Coffee</li>
         </ul>
       </div>
     </div>
@@ -249,58 +248,72 @@
 
     <div class="proj">
       <h4>Hades/Olympus</h4>
-      <p class="role-line">Full-Stack Senior Developer</p>
       <p class="dur">1 Year (2026)</p>
-      <p>An LLM-powered web crawling solution that scrapes and extracts job listings from company websites
-        for our clients. The LLM handles identification, extraction and pagination tasks; the multi-country,
-        multi-client system processes up to 5,000 websites daily. Built entirely in Python on Palantir
-        Foundry — Pipelines, Datasets and Workshop applications.</p>
+      <p>A LLM-powered web crawling solution designed to scrape and extract job listings from company
+        websites for our clients. Leveraging an LLM for identification, extraction, and pagination tasks, the
+        multi-country, multi-client system efficiently processed up to 5,000 websites daily. The architecture
+        was built entirely in Python, utilizing tools within Palantir Foundry, including Pipelines, Datasets,
+        and Workshop Applications.</p>
     </div>
 
     <div class="proj">
       <h4>Artemis/Apollo Web Crawling and Processing</h4>
-      <p class="role-line">Full-Stack Senior .NET Developer</p>
       <p class="dur">4 Years (2025)</p>
-      <p>Development and maintenance of the systems inside the Meta Team: applications that dynamically set
-        up web crawlers, scrape websites and use user-generated pipelines to process and distribute data to
-        stakeholders in near real time. The data was used across the Marketplaces landscape of every business
-        in Ringier AG.</p>
+      <p>I was responsible for the development and maintenance of the various systems inside the Meta Team.
+        These applications were used to dynamically setup web crawlers, scrape the desired websites and using
+        user generated pipelines, process and distribute the data to the relevant stakeholders in a near
+        realtime manner. Our data was used in every aspect of the Marketplaces landscape inside the various
+        businesses inside Ringier AG.</p>
     </div>
 
     <div class="proj">
       <h4>(iRIS) Refinery Integration Suite</h4>
-      <p class="role-line">Software Developer</p>
       <p class="dur">3 Years (2022)</p>
-      <p>Modernisation of the legacy applications at the Precious Metals Refinery into one platform built on
-        modern web technology, a relational data model and a microservice architecture. iRIS covers every
-        aspect of the refinery process, integrates with the marketing team in England and with on-site
-        hardware — scales, scanners, label printers, PLCs and engravers.</p>
+      <p>This application is a modernization of all the old legacy applications at the Precious Metals
+        Refinery. The app was built on modern web development technologies with proper relation databases and
+        a micro service architecture. The application is used in every aspect of the refinery processes and
+        makes reporting easier as there were many standalone applications on site in the past and iRIS is one
+        complete platform. The application also integrates with the marketing team in England as well as on
+        site hardware e.g., Scales, scanners, label printers, PLC's, Engravers and more to come.</p>
+    </div>
+
+    <div class="proj">
+      <h4>Source Rewards</h4>
+      <p class="dur">1 Year (2020)</p>
+      <p>I architected, developed and released the Source Rewards application, used by protection services at
+        all major Anglo American sites for the collection of information and payments to informants. The
+        application changed how protection services used to only collect information on a paper based system
+        to a web based system which allows all users easy access to the relevant information as soon as it is
+        collected.</p>
     </div>
 
     <div class="proj">
       <h4>Operational Intelligence Suite</h4>
-      <p class="role-line">Software Developer</p>
       <p class="dur">2 Years (2019)</p>
-      <p>Real-time monitoring of environmental and occupational-hygiene sensors, released to 12 sites in a
-        year. Mines configure the app themselves; integrations include OSIsoft PI Historian, Wonderware,
-        ETL feeds from manual Excel data and a custom email listener. The project received the 2018 Health
-        and Safety Software Award in the mining industry.</p>
+      <p>I was responsible for the development and support of the Operational Intelligence Suite, which was
+        released to 12 different sites during the year. The App was built on AngularJS, .Net Web API Service
+        and a MS SQL database. A mine would monitor their environmental and occupational hygiene sensors using
+        the OiS in real time and configure everything using the App. Integration with the sensors include the
+        OSI Soft Pi Historian, Wonderware, ETL's with manual excel data and using a custom email listener. The
+        project received the Health and Safety Software Award of 2018 in the mining industry.</p>
     </div>
 
     <div class="proj">
       <h4>Visual Business</h4>
-      <p class="role-line">Software Developer</p>
-      <p class="dur">2 Years (2019)</p>
-      <p>Enterprise architects capture KPIs and their metadata, build relationship trees and implement them
-        at clients; the data feeds Power BI reports that refresh automatically as client metadata changes.</p>
+      <p class="dur">3 Years (2019)</p>
+      <p>Enterprise Architects use the application to capture all relevant KPI's and their metadata, create
+        relationship trees with the KPI's and implement the KPI's at clients. The data can then be used to
+        generate Power BI reports to present to the Clients. When the metadata of the client needs to be
+        updated, the reports automatically refreshes the data to show progress of the Business in a Visual
+        manner.</p>
     </div>
 
     <div class="proj">
       <h4>Offline Capture</h4>
-      <p class="role-line">Software Developer</p>
-      <p class="dur">1 Month (2016)</p>
-      <p>Remote capture of questionnaires without an internet connection, uploaded to the server once
-        connectivity returns. Built with Apache Cordova, JavaScript and AngularJS.</p>
+      <p class="dur">1 Year (2016)</p>
+      <p>The system is used to capture questionnaires remotely (without an internet connection) and then
+        uploading the information to the server. The app was written using Apache Cordova and JavaScript with
+        Angular JS.</p>
     </div>
   </div>
 </section>
