@@ -1,21 +1,33 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import TimeLineElement from "../components/cv/TimeLine.astro";
+import PageHeader from "../components/PageHeader.astro";
 ---
 
 <BaseLayout title="Francois Gerber - About">
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Who Am I?</div>
-  </div>
+  <PageHeader title="Who Am I?" />
 
   <div class="mb-10 text-justify">
-    I am a passionate Software Developer dedicated to delivering high-quality scalable solutions. 
+    I build systems that turn the open web into data a business can act on. Most recently that
+    means an LLM-powered crawling platform inside Palantir Foundry: identifying, extracting and
+    paginating across thousands of company websites a day, feeding marketplaces data used across
+    Ringier's businesses.
     <br /><br />
-    My enthusiasm for problem-solving drives me to continuously expand my knowledge in software development. I embrace daily learning opportunities and strive to excel in every task.
-    <br />
-    My expertise lies in data-driven software solutions, specializing in the .NET Web Stack. I thrive in both solo projects and collaborative team environments, always eager to learn and support others in achieving their objectives. 
-    <br />
-    With a quick problem-solving ability and a solutions-oriented mindset, I distinguish myself as a capable leader.
+    Before that I built and ran the crawling and processing platform at Ringier South Africa —
+    user-configurable pipelines that scrape, process and distribute market intelligence in near
+    real time, in C#, Python, Vue and React on AWS.
+    <br /><br />
+    I started out in industrial software: a refinery modernisation that replaced a dozen
+    standalone tools with one platform wired to scales, label printers and PLCs, and a safety and
+    operational-intelligence suite deployed to twelve mining sites that won the 2018 Health and
+    Safety Software Award.
+    <br /><br />
+    I am a full-stack developer by training (.NET, SQL, TypeScript) who now spends most of the day
+    in data: pipelines, extraction quality, and the unglamorous work of making a crawl dependable
+    at scale.
+    <br /><br />
+    Currently Senior .NET Full Stack Developer at Ringier South Africa, based in Flic en Flac,
+    Mauritius. The <a href="/projects">projects page</a> is the short version of all of this.
   </div>
 
   <div class="mb-5">
@@ -23,14 +35,7 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
   </div>
 
   <div class="time-line-container grid gap-4 mb-10">
-    <TimeLineElement title="Full Names" subtitle="Francois Gerber" />
     <TimeLineElement title="Location" subtitle="Flic en Flac, Black River, Mauritius" />
-    <TimeLineElement title="Gender" subtitle="Male" />
-    <TimeLineElement title="Marital Status" subtitle="Married" />
-    <TimeLineElement
-      title="Transport"
-      subtitle="Own Vehicle and valid Code B drivers license"
-    />
     <TimeLineElement
       title="Home Language"
       subtitle="English (Strong/Fluent: Reading, Written, Spoken – Business Level)"
@@ -63,9 +68,9 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
 
   <div class="time-line-container mb-10">
     <TimeLineElement
-      title="Senior .Net Full Stack Developer"
-      subtitle="From 2022 at Ringier South Africa"
-      desc="While working at Ringier SA, I contributed towards an internal dynamic crawling solution, used for Market Intelligence and data collection in the Marketplaces space of the company. I used various web technologies including .NET, python, AWS, NodeJs, Vue and React frontend frameworks."
+      title="Senior .NET Full Stack Developer"
+      subtitle="2022 to present · Ringier South Africa"
+      desc="Owner of the crawling and processing platform behind Ringier's marketplaces data: user-configurable pipelines that scrape, process and distribute market intelligence in near real time (C#, Python, AWS, Vue, React, Scrapy). Since 2026, an LLM-powered crawling system inside Palantir Foundry — identification, extraction and pagination across up to 5,000 company websites a day, on Foundry Pipelines, Datasets and Workshop applications."
     />
     <TimeLineElement
       title=".NET Full Stack Software Developer"
@@ -95,8 +100,8 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
     <li>Microsoft® Certified Technology Specialist – Accessing Data</li>
     <li>Microsoft® Certified Specialist – C# & HTML5, CSS3 & JavaScript</li>
     <li><a href="https://www.udemy.com/certificate/UC-8e7990b0-0435-44f2-9f47-96e3aba9c208/" target="_blank">Go - The Complete Guide - Udemy</a></li>
-    <li><a href="https://www.udemy.com/certificate/UC-ceaafd51-c8b4-4308-8fb6-acb1faba862f/" target="_blank"></a>The Complete Python Developer - Udemy</a></li>
-    <li><a href="https://www.udemy.com/certificate/UC-46488394-14f7-4caa-bcad-dd453edf05af/" target="_blank"></a>The Complete Prompt Engineering for AI Bootcamp (2025) - Udemy</a></li>
+    <li><a href="https://www.udemy.com/certificate/UC-ceaafd51-c8b4-4308-8fb6-acb1faba862f/" target="_blank">The Complete Python Developer - Udemy</a></li>
+    <li><a href="https://www.udemy.com/certificate/UC-46488394-14f7-4caa-bcad-dd453edf05af/" target="_blank">The Complete Prompt Engineering for AI Bootcamp (2025) - Udemy</a></li>
   </ul>
 
   <div class="mb-5">
@@ -106,14 +111,12 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
   <ul class="list-disc md:columns-5 columns-2 mx-6">
     <li>.NET</li>
     <li>C#</li>
-    <li>Blazor</li>
     <li>ASP.NET</li>
-    <li>Ionic/Cordova</li>
-    <li>Nodejs</li>
-    <li>JavaScript</li>
-    <li>TypeScript</li>
-    <li>Go (GoLang)</li>
+    <li>Blazor</li>
     <li>Python</li>
+    <li>Go (GoLang)</li>
+    <li>TypeScript</li>
+    <li>JavaScript</li>
     <li>SQL</li>
     <li>MongoDB</li>
     <li>ElasticSearch</li>
@@ -121,18 +124,18 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
     <li>Angular</li>
     <li>Vue</li>
     <li>React</li>
-    <li>Git</li>
-    <li>CI/CD</li>
-    <li>Azure</li>
-    <li>AWS</li>
-    <li>Linux</li>
-    <li>Web Applications</li>
-    <li>Mobile Apps</li>
-    <li>Web Scraping</li>
+    <li>Node.js</li>
+    <li>Palantir Foundry</li>
+    <li>Foundry Pipelines &amp; Datasets</li>
+    <li>LLM Extraction &amp; Prompting</li>
+    <li>Web Scraping (Scrapy, Playwright, Puppeteer)</li>
     <li>Distributed Systems</li>
-    <li>Data Driven Solutions</li>
+    <li>Data Modelling</li>
+    <li>Docker</li>
+    <li>CI/CD</li>
+    <li>AWS</li>
+    <li>Azure</li>
+    <li>Linux</li>
     <li>Architecture</li>
-    <li>Creative Problem Solving</li>
-    <li>Customer Experience</li>
   </ul>
 </BaseLayout>
