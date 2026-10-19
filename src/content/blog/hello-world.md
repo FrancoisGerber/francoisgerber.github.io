@@ -4,11 +4,10 @@ description: "A placeholder post so we can see how the blog looks: typography, h
 pubDate: 2026-10-19
 heroImage: "/blog/hero-placeholder.jpg"
 ---
+<audio controls preload="metadata" src="/blog/hello-world-audio.mp3" class="w-full my-4"></audio>
 
 This is a dummy post. It exists only to check how the blog section renders, and it should be
 deleted (or replaced) before anything is published.
-
-<audio controls preload="metadata" src="/blog/hello-world-audio.mp3" class="w-full my-4"></audio>
 
 ## Why this page exists
 
