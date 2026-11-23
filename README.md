@@ -2,9 +2,8 @@
 
 ### Full-stack engineer — database to interface, and the plumbing in between
 
-🧑‍💻 📖 🎮 🌱 🏝️ ☕ LLM-powered crawling inside Palantir Foundry, processing up to 5,000 company
-websites a day. Dynamic scraping platforms in Python before that, and eight years of .NET full-stack
-delivery before that. Senior .NET Full Stack Developer at Ringier South Africa, based in Mauritius.
+🧑‍💻 📖 🎮 🌱 🏝️ ☕ Over a decade building it all: .NET and C# line-of-business systems, Python data
+pipelines, TypeScript front ends, and the AWS and Azure underneath.
 
 [Website](https://francoisgerber.github.io) ·
 [Download My Resume](https://francoisgerber.github.io/FrancoisGerberResume.pdf) ·
