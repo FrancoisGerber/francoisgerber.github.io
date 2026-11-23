@@ -1,6 +1,9 @@
 # build output
 dist/
 
+# generated CV (resume/cv.template.html is the source; the PDF is committed)
+resume/cv.generated.html
+
 # dependencies
 node_modules/
 

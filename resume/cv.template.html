@@ -1,0 +1,179 @@
+<!doctype html>
+<!-- GENERATED OUTPUT — do not edit. Template: resume/cv.template.html.
+     Rebuilt by `npm run resume` (also runs as part of `npm run build`) from the
+     compiled site in dist/. Change the website, not this file. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Francois Gerber — CV</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #2b2b2b;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+
+  .page {
+    width: 210mm; height: 297mm; display: flex; overflow: hidden;
+    page-break-after: always; break-after: page; position: relative; background: #fff;
+  }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+
+  /* ---------- side panel ---------- */
+  .side { width: 40%; background: #2e2e2e; color: #f2f2f2; display: flex; flex-direction: column; }
+  .hero { position: relative; height: 120mm; overflow: hidden; }
+  .hero img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; }
+  .hero .veil {
+    position: absolute; inset: auto 0 0 0; height: 58%;
+    background: linear-gradient(to top, rgba(24,24,24,0.94), rgba(24,24,24,0.0));
+  }
+  .hero .name { position: absolute; left: 7mm; right: 7mm; bottom: 7mm; color: #fff; }
+  .hero .name b { display: block; font-size: 24pt; line-height: 1.02; font-weight: 700; letter-spacing: -0.01em; }
+  .hero .name span { display: block; margin-top: 1.8mm; font-size: 9.2pt; color: #e8e8e8; }
+
+  .side-body { padding: 5.5mm 6.5mm 5mm; text-align: center; flex: 1; }
+  .side h3 {
+    font-size: 10pt; font-weight: 400; letter-spacing: .06em; text-transform: uppercase;
+    border: 1px solid #f2f2f2; padding: 1.3mm 2mm; margin: 0 auto 3mm; width: 84%;
+  }
+  .side .block { margin-bottom: 4.2mm; }
+  .side p { font-size: 7.9pt; line-height: 1.38; margin: 0 0 1.4mm; }
+  .side a { color: #9fc8ff; text-decoration: none; }
+  .side ul { list-style: none; margin: 0; padding: 0; font-size: 8.3pt; line-height: 1.45; }
+
+  /* ---------- main column ---------- */
+  .main { width: 60%; padding: 8.5mm 9.5mm 6mm 8.5mm; }
+  .main h2 {
+    font-family: Georgia, "Times New Roman", serif; font-weight: 400;
+    font-size: 15pt; text-transform: uppercase; letter-spacing: .01em;
+    margin: 0 0 1mm; padding-bottom: 1.6mm; border-bottom: 1.2px solid #d3d3d3;
+  }
+  .main h2:not(:first-child) { margin-top: 4.4mm; }
+  .main h2 + * { margin-top: 2.4mm; }
+  .org { margin-bottom: 3mm; }
+  .org .title { font-size: 10.2pt; font-weight: 600; margin: 0; }
+  .org .meta { font-size: 8.5pt; color: #6c6c6c; margin: .4mm 0 1mm; }
+  .main p { font-size: 8.4pt; line-height: 1.4; margin: 0 0 1.5mm; }
+  .main ul { margin: .7mm 0 0 4mm; padding: 0; }
+  .main li { font-size: 8.4pt; line-height: 1.34; margin-bottom: .5mm; }
+
+  .skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1mm 3mm; font-size: 8.1pt; color: #3a3a3a; }
+  .skills div { white-space: nowrap; }
+  .skills .wide { grid-column: span 2; }
+
+  .proj { margin-bottom: 4mm; }
+  .proj h4 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: 11.4pt; margin: 0; }
+  .proj .dur { font-size: 8.4pt; color: #6c6c6c; margin: .4mm 0 1mm; }
+  .page2 .proj { margin-bottom: 3.1mm; }
+  .page2 .proj h4 { font-size: 11pt; }
+  .page2 .main p { font-size: 8.15pt; line-height: 1.35; }
+</style>
+</head>
+<body>
+
+<!-- ================= PAGE 1 ================= -->
+<section class="page">
+  <aside class="side">
+    <div class="hero">
+      <img src="assets/portrait.jpg" alt="Francois Gerber" />
+      <div class="veil"></div>
+      <div class="name">
+        <b>Francois<br />Gerber</b>
+        <span>{{TAGLINE}}</span>
+      </div>
+    </div>
+    <div class="side-body">
+      <div class="block">
+        <h3>About me</h3>
+        {{ABOUT}}
+      </div>
+
+      <div class="block">
+        <h3>Contact</h3>
+        {{CONTACT}}
+      </div>
+
+      <div class="block">
+        <h3>Top skills</h3>
+        <ul>
+          {{TOP_SKILLS}}
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>Interests</h3>
+        <ul>
+          {{INTERESTS}}
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <h2>Education</h2>
+    {{EDUCATION}}
+
+    <h2>Work experience</h2>
+    {{EXPERIENCE}}
+
+    <h2>Certifications</h2>
+    <ul>
+      {{CERTIFICATIONS}}
+    </ul>
+
+    <h2>Skills</h2>
+    <div class="skills">
+      {{SKILLS}}
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAGE 2 ================= -->
+<section class="page page2">
+  <aside class="side">
+    <div class="hero">
+      <img src="assets/portrait.jpg" alt="Francois Gerber" />
+      <div class="veil"></div>
+      <div class="name">
+        <b>Francois<br />Gerber</b>
+        <span>{{TAGLINE}}</span>
+      </div>
+    </div>
+    <div class="side-body">
+      <div class="block">
+        <h3>About me</h3>
+        {{ABOUT}}
+      </div>
+
+      <div class="block">
+        <h3>Contact</h3>
+        {{CONTACT}}
+      </div>
+
+      <div class="block">
+        <h3>Top skills</h3>
+        <ul>
+          {{TOP_SKILLS}}
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>Interests</h3>
+        <ul>
+          {{INTERESTS}}
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <h2>Enterprise Solutions</h2>
+    {{PROJECTS}}
+  </div>
+</section>
+
+</body>
+</html>

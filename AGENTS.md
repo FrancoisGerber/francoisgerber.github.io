@@ -8,7 +8,7 @@ Owner: Francois Gerber (Telegram DM, English, terse — he dislikes long reports
 - Astro CV + blog, published by GitHub Pages at <https://francoisgerber.github.io/>.
 - Remote `git@github.com:FrancoisGerber/francoisgerber.github.io.git`, default branch `main`.
 - **Nothing is public until it reaches `main`** — a pushed branch is a draft. No PRs unless asked.
-- Current work sits on branch **`profile-refresh`** (pushed, tracks origin, 10 commits ahead of main).
+- Commit on a branch off `main` unless he says otherwise; pushing `main` is what publishes.
 
 ## Stack (after the Oct 2026 dependency upgrade)
 
@@ -18,8 +18,9 @@ Content collections use the Content Layer API (`src/content.config.ts`, `glob()`
 `@astrojs/tailwind` and `tailwind.config.cjs` are gone — Tailwind config lives in `src/styles/global.css`
 as `@plugin` directives.
 
-Commands: `npm run dev -- --port 4321` (HMR), `npm run build`, `npx astro preview --port 4321`
-(preview serves the built output — **no** hot reload).
+Commands: `npm run dev -- --port 4321` (HMR), `npm run build` (Astro build **plus** CV regeneration —
+see the resume section), `npm run resume` (CV only), `npx astro preview --port 4321` (preview serves the
+built output — **no** hot reload).
 
 ## What was done on this branch
 
@@ -54,6 +55,11 @@ Commands: `npm run dev -- --port 4321` (HMR), `npm run build`, `npx astro previe
 - Page titles are all `PageHeader` — keep them identical or the pages drift again.
 - Specifics over adjectives in all copy; numbers beat claims (5,000 sites/day, 12 mining sites,
   2018 award).
+- The CV is generated from `dist/`; never reintroduce a hand-mirrored copy of the content.
+- Astro pages stay literal. Do not extract page copy into shared data modules or a CMS to make PDF
+  generation easier - recovering the text from the compiled output is the cheaper trade.
+- `README.md` is a byte-identical copy of the profile repo's README, not generated. He rejected a
+  generator: two copies, edited together, verified with `diff -q`.
 
 ## Traps already hit
 
@@ -80,60 +86,51 @@ them, so nothing appears on the site, in the sitemap, or in the nav — but the 
 use. To bring the store back: `git mv src/pages/_store src/pages/store`, rebuild, and replace the demo
 item with real ones.
 
-## The resume PDF — how it was built (read this before touching it)
+## The resume PDF - generated from the site (read this before touching it)
 
-`public/FrancoisGerberResume.pdf` is **generated**, never hand-edited. Source of truth for the CV is
-`resume/FrancoisGerberResume.html`; the portrait is `resume/assets/portrait.jpg`.
+`public/FrancoisGerberResume.pdf` is generated output, committed so the deployed site always carries a
+current copy. Nothing is mirrored by hand any more: the CV's content is read out of the compiled site.
 
 **Pipeline**
 
-1. Edit `resume/FrancoisGerberResume.html`. Layout is two A4 `.page` sections (210×297mm, `display:flex`):
-   a 40%-wide dark sidebar (`#2e2e2e`) with the portrait, the name overlaid in white and boxed
+1. `npm run build` = `astro build && node scripts/build-resume.mjs`. The script reads `dist/index.html`,
+   `dist/about/index.html` and `dist/projects/index.html` and pulls, verbatim and in site order: the home
+   tagline, the About summary paragraphs, Details / Education / Experience / Certifications / Skills, and
+   the seven project cards (title, duration, description).
+2. `resume/cv.template.html` is design only - two A4 `.page` sections (210x297mm, `display:flex`): a
+   40%-wide dark sidebar (`#2e2e2e`) with the portrait, the name overlaid in white and boxed
    `ABOUT ME / CONTACT / TOP SKILLS / INTERESTS` headings, plus a 60% main column with serif uppercase
    section headings and a hairline rule. Page 1 = education, work experience, certifications, skills;
-   page 2 = Enterprise Solutions.
-2. Serve the folder: `python3 -m http.server 8099` **inside `resume/`** (background), because the page
-   references `assets/portrait.jpg` relatively.
-3. Print with the automation browser:
-   `cdp("Page.printToPDF", printBackground=True, preferCSSPageSize=True)`, base64-decode into
-   `public/FrancoisGerberResume.pdf`.
-4. Kill the server **by PID** (`kill <pid>`); never `pkill -f "http.server"` — the pattern matches the
-   agent's own shell command line and takes the session down.
-5. `npm run build` then check the PDF itself: `pdfinfo` for the page count, `pdftoppm -r 110 -png` to
-   render pages, and **look at the images** — clipping at the page edge is invisible in the HTML and
-   obvious in the render.
+   page 2 = Enterprise Solutions. Content slots are `{{PLACEHOLDER}}`.
+3. The filled HTML is written to `resume/cv.generated.html` (gitignored) for inspection, then headless
+   Chrome prints it over CDP - `Page.printToPDF` with `printBackground`, `preferCSSPageSize` and zero
+   margins, because the CSS `@page` size and the dark sidebar are the point. The `--print-to-pdf` CLI flag
+   is not equivalent: it applies its own paper size, margins and header/footer.
+4. The PDF is written to `public/FrancoisGerberResume.pdf` and copied into `dist/` after the build, so the
+   deployed site carries the fresh copy. `npm run resume` runs the script alone against an existing
+   `dist/`.
 
-**Content is mirrored from the site by hand — keep it that way**
+**What lives in the script, not on the site** (`CONFIG` in `scripts/build-resume.mjs`): contact cell,
+email, LinkedIn and site links (not published on the site), the six curated top skills, and the interests
+list. Top skills are matched against the site's Skills list at build time - renaming a skill on the site
+fails the build instead of silently dropping it from the CV. Skill labels longer than 20 characters span
+two grid columns, which reproduces the original grid exactly.
 
-There is deliberately no generator: the CV text was copied from the site source so the two agree, but
-nothing keeps them in sync. When either changes, re-copy and re-verify:
+**Never edit the CV to fix content.** Change the page, run `npm run build`. `resume/cv.template.html` is
+only for design changes.
 
-- project cards → `src/pages/projects.astro` (title, `desc`, `badge`; all seven, Source Rewards included)
-- experience → `src/pages/about.astro` `<TimeLineElement>` title/subtitle/desc, using the site's exact
-  date strings ("2022 to present · Ringier South Africa")
-- skills → the 28-item `<ul class="list-disc md:columns-5 …">` list, exact labels (the long ones span
-  two grid columns via `.wide`)
-- certifications → the About page's list; contact/education → the same page
-- sidebar "About me" → the **home intro** sentences (`index.astro`), not the full About paragraphs — the
-  owner explicitly does not want the long About text in the PDF
+**Verification** - the build ends with per-page `main overflow` / `side overflow` numbers; anything above
+~1px means the A4 page is clipping content (it hides the excess silently, so the PDF still looks
+plausible) and the site copy has to shrink. Then look at the pages: `pdfinfo ... | grep -E 'Pages|Page
+size'` for 2 pages at 595x842 pts, and `pdftoppm -r 110 -png` to render them, and actually look. Do not
+verify with `pdftotext -layout` - the sidebar column interleaves into the main column and every long
+string appears "missing".
 
-Verification that actually catches drift: compare whitespace-insensitively
-(`re.sub(r'\s+','',text)`) between each site string and the CV source. Do **not** verify against
-`pdftotext -layout` — the sidebar column interleaves into the main column's lines and every long string
-appears "missing".
-
-**Design notes** (this layout is the owner's preference — it replaces the old PDF's look, which was
-extracted with `pdfimages` and studied page by page):
-
-- A4, margin 0, two sections of exactly 297mm; anything longer clips silently.
-- Page 1 body 8.4pt / page 2 8.15pt; project entries carry no role line (the site cards have none).
-- Fonts: Georgia for section and project headings, system sans for body — matches the old CV.
-- Backups of previous PDFs live in `~/Documents/Resume-Backups/`.
+Backups of older PDFs live in `~/Documents/Resume-Backups/`.
 
 ## Open items
 
 - **Publish**: merge `profile-refresh` into `main` when he asks — GitHub Pages then deploys.
-- `public/FrancoisGerberResume.pdf` is still the old CV and now disagrees with the site copy.
 - Projects/Blog titles sit ~7px left of Home/Store because those pages scroll (scrollbar gutter).
   Cosmetic; fixing means `scrollbar-gutter: stable`, which is a custom-CSS change he may not want.
 - `HorizontalCard` renders each project title as an `<h1>` (8 h1s on Projects). Semantic only.
