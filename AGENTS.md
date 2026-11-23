@@ -29,7 +29,7 @@ built output — **no** hot reload).
    two malformed `<a>` tags in the About certifications that Astro 7 rejects, `bg-opacity-90` →
    `bg-base-100/90`.
 2. **Profile rewritten** to match the current work: site title/description, hero copy, About (four
-   concrete paragraphs: Foundry LLM crawler → Ringier crawling platform → refinery/iRIS + OiS award →
+   concrete paragraphs: Foundry LLM crawler → Ringier crawling platform → refinery/iRIS + OiS →
    what he does now), Ringier role description, refreshed skills. Cut CV-form noise (full names,
    gender, marital status, transport) and "passionate developer" filler.
 3. **Blog emptied** — both starter posts deleted, homepage hides the section while the collection is
@@ -53,8 +53,7 @@ built output — **no** hot reload).
 - The black theme must be declared (`@plugin "daisyui" { themes: black --default; }`); daisyUI 5 ships
   only light/dark otherwise and the site silently renders light.
 - Page titles are all `PageHeader` — keep them identical or the pages drift again.
-- Specifics over adjectives in all copy; numbers beat claims (5,000 sites/day, 12 mining sites,
-  2018 award).
+- Specifics over adjectives in all copy; numbers beat claims (5,000 sites/day, 12 mining sites).
 - The CV is generated from `dist/`; never reintroduce a hand-mirrored copy of the content.
 - Astro pages stay literal. Do not extract page copy into shared data modules or a CMS to make PDF
   generation easier - recovering the text from the compiled output is the cheaper trade.
