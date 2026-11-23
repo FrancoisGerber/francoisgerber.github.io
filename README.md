@@ -2,8 +2,8 @@
 
 ### Full-stack engineer — database to interface, and the plumbing in between
 
-🧑‍💻 📖 🎮 🌱 🏝️ ☕ Over a decade building it all: .NET and C# line-of-business systems, Python data
-pipelines, TypeScript front ends, and the AWS and Azure underneath.
+🧑‍💻 📖 🎮 🌱 🏝️ ☕ Over a decade of full-stack work: .NET and C# line-of-business systems, Python data
+pipelines, TypeScript front ends, deployed on AWS and Azure.
 
 [Website](https://francoisgerber.github.io) ·
 [Download My Resume](https://francoisgerber.github.io/FrancoisGerberResume.pdf) ·
