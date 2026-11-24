@@ -8,7 +8,8 @@ This file holds only the rules, his preferences, and the traps that have already
 ## Rules
 
 - Astro CV + blog, published by GitHub Pages. `main` publishes; a pushed branch is a draft.
-- No push, no merge, no PR unless asked. Branch per change, commit messages in prose.
+- Branch per change, commit messages in prose. "Ship it" means **open a PR and stop** — never merge into
+  `main` and never push `main` yourself, even when he approves the work. He merges.
 - `npm run build` green is the floor, not the proof — look at the rendered page.
 - Leave the site running for review (`npm run dev -- --port 4321`, background) and kill servers by PID.
 
