@@ -8,6 +8,8 @@ const blogSchema = z.object({
     pubDate: z.coerce.date(),
     updatedDate: z.string().optional(),
     heroImage: z.string().optional(),
+    lede: z.string().optional(),
+    draft: z.boolean().optional(),
 });
 
 const storeSchema = z.object({

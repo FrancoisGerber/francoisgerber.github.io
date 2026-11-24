@@ -6,7 +6,7 @@ import localizedFormat from "dayjs/plugin/localizedFormat";
 
 export interface Props extends BlogSchema {}
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, lede } = Astro.props;
 dayjs.extend(localizedFormat);
 const displayDate = dayjs(pubDate).format("ll");
 ---
@@ -26,6 +26,7 @@ const displayDate = dayjs(pubDate).format("ll");
         )
       }
       <div class="divider my-2"></div>
+      {lede && <p class="text-xl italic opacity-70 my-4">{lede}</p>}
       <slot />
     </article>
   </main>
