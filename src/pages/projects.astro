@@ -7,6 +7,14 @@ import PageHeader from "../components/PageHeader.astro";
 <BaseLayout title="Francois Gerber - Projects">
   <PageHeader title="Enterprise Solutions" />
   <HorizontalCard
+    title="Argus AI QA Agent"
+    desc="I architected and developed Argus, an AI QA agent that watched the Hades crawling platform. It checked every site on a schedule, confirmed the crawler still found and exported listings, and ran one session per site to a verdict: healthy, a proposed configuration change, or a request for a person. When a crawl broke it inspected the page, dry-ran the crawler and read the site's configuration before writing a proposal, which an operator reviewed and approved by hand rather than the agent applying it. It replaced the manual check of crawl health across the site fleet, and reported into Olympus so the health, conversation and proposals sat on the same screen the operators already worked in. The agent was built in Python on Palantir Foundry, using Automate and Workshop, running a Claude model in a tool loop."
+    badge="1 Year (2026)"
+    tags={["Python", "Palantir Foundry", "LLM", "Claude", "Prompts", "Agents", "Workshop"]}
+  />
+
+  <div class="divider my-0"></div>
+  <HorizontalCard
     title="Hades/Olympus"
     desc="I architected and developed this LLM-powered web crawling solution, designed to scrape and extract job listings from company websites for our clients. Leveraging an LLM for identification, extraction, and pagination tasks, the multi-country, multi-client system efficiently processed up to 5,000 websites daily. The architecture was built entirely in Python, utilizing tools within Palantir Foundry, including Pipelines, Datasets, and Workshop Applications."
     badge="2 Years (2024)"
