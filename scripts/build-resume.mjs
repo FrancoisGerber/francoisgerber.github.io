@@ -422,7 +422,13 @@ async function printToPdf(htmlPath, outPath) {
           return {
             page: i + 1,
             heightMm: +(page.height * px2mm).toFixed(1),
-            mainOverflowPx: Math.round(Math.max(0, mainRect.bottom - page.bottom)),
+            mainOverflowPx: Math.round(
+              Math.max(
+                0,
+                main ? main.scrollHeight - main.clientHeight : 0,
+                mainRect.bottom - page.bottom
+              )
+            ),
             sideOverflowPx: Math.round(
               Math.max(0, side ? side.scrollHeight - side.clientHeight : 0, bodyRect.bottom - page.bottom)
             ),
