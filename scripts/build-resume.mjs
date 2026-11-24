@@ -48,6 +48,9 @@ const CONFIG = {
   interests: ['Coding', 'Reading', 'Gaming', 'Gardening', 'Island life', 'Coffee'],
   // Skill labels longer than this span two grid columns in the CV.
   wideSkillChars: 20,
+  // Project cards that fit page 2; the rest continue on page 3. At nine cards,
+  // eight clips the last two off the silent A4 boundary.
+  projectsOnPage2: 6,
 };
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -204,19 +207,23 @@ function buildHtml({ tagline, about, projects, template }) {
     })
     .join('');
 
-  const projectsHtml = projects
-    .map((p) =>
-      [
-        '<div class="proj">',
-        `  <h4>${esc(p.title)}</h4>`,
-        p.duration ? `  <p class="dur">${esc(p.duration)}</p>` : '',
-        `  <p>${esc(p.desc)}</p>`,
-        '</div>',
-      ]
-        .filter(Boolean)
-        .join('\n')
-    )
-    .join('\n\n    ');
+  const renderProjects = (list) =>
+    list
+      .map((p) =>
+        [
+          '<div class="proj">',
+          `  <h4>${esc(p.title)}</h4>`,
+          p.duration ? `  <p class="dur">${esc(p.duration)}</p>` : '',
+          `  <p>${esc(p.desc)}</p>`,
+          '</div>',
+        ]
+          .filter(Boolean)
+          .join('\n')
+      )
+      .join('\n\n    ');
+
+  const page2Projects = projects.slice(0, CONFIG.projectsOnPage2);
+  const page3Projects = projects.slice(CONFIG.projectsOnPage2);
 
   const values = {
     TAGLINE: esc(stripEmoji(tagline)),
@@ -228,7 +235,8 @@ function buildHtml({ tagline, about, projects, template }) {
     EXPERIENCE: about.experience.map(orgBlock).join('\n    '),
     CERTIFICATIONS: about.certifications.map((c) => `<li>${esc(c)}</li>`).join('\n      '),
     SKILLS: skills,
-    PROJECTS: projectsHtml,
+    PROJECTS: renderProjects(page2Projects),
+    PROJECTS_PAGE3: renderProjects(page3Projects),
   };
 
   let html = template;
@@ -236,8 +244,12 @@ function buildHtml({ tagline, about, projects, template }) {
     if (!html.includes(`{{${key}}}`)) throw new Error(`Template has no {{${key}}} placeholder.`);
     html = html.split(`{{${key}}}`).join(value);
   }
-  const leftover = html.match(/\{\{[A-Z_]+\}\}/g);
+  const leftover = html.match(/\{\{[A-Z_0-9]+\}\}/g);
   if (leftover) throw new Error(`Unfilled template placeholder(s): ${leftover.join(', ')}`);
+  // Fewer cards than page 2 holds: no continuation page at all.
+  if (!page3Projects.length) {
+    html = html.replace(/\s*<!-- PAGE3:START -->[\s\S]*?<!-- PAGE3:END -->/, '');
+  }
   return html;
 }
 
