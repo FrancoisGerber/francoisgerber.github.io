@@ -29,6 +29,8 @@ and they live in `CONFIG` in `scripts/build-resume.mjs`.
   generated.
 - Prose in his voice: concrete, numbers over adjectives, no filler openers. Specifics go in body copy; range
   and adaptability in the tagline.
+- **No comma before "and".** Not once, not stylistically. Split the sentence, or reach for a different
+  conjunction. It applies to every page, post and README he will read.
 - The About summary is one arc, four paragraphs at most, ~130 words — it is quoted verbatim in the CV
   sidebar. Do not restate a fact the Experience entry below it already carries.
 - Do not claim awards or credentials he has not asked to advertise.
@@ -52,11 +54,13 @@ and they live in `CONFIG` in `scripts/build-resume.mjs`.
 
 `src/content/blog/<slug>.md`, structure and frontmatter copied from
 `src/content/blog/archived/blog-post-template.md` — the archived example, kept in the collection with
-`draft: true` so it never builds or lists. Every `getCollection("blog")` call filters `!data.draft`; keep it
-that way. Assets live in their own folder per post: `public/blog/<slug>/` holding `<slug>.jpg` and
+`draft: true` so it never builds or lists. The file name is the title: `<slug>.md` is the kebab-case of the
+`title` field, with no divergence between them. Every `getCollection("blog")` call filters `!data.draft`;
+keep it that way. Assets live in their own folder per post: `public/blog/<slug>/` holding `<slug>.jpg` and
 `<slug>-audio.mp3`. One image (the hero, absolute path, no inline images), an audio player as the first body
-element above the intro, `##` sections only. Narration is Hermes TTS converted to mp3. Topic ideas in
-`BLOG_IDEAS.md`. Do not publish posts unasked.
+element above the intro, `##` sections only. An optional `lede` line in the frontmatter states the argument
+in one sentence and renders above the body, read first in the narration. Narration is Hermes TTS converted to
+mp3. Topic ideas in `BLOG_IDEAS.md`. Do not publish posts unasked.
 
 ## Open items
 
