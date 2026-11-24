@@ -50,9 +50,12 @@ and they live in `CONFIG` in `scripts/build-resume.mjs`.
 
 ## Blog posts
 
-`src/content/blog/<slug>.md`, structure and frontmatter copied from `src/content/blog/hello-world.md`. One
-image (the hero, absolute path, no inline images), an audio player as the first body element above the intro,
-`##` sections only. Narration is Hermes TTS (Piper, British male) converted to mp3. Topic ideas in
+`src/content/blog/<slug>.md`, structure and frontmatter copied from
+`src/content/blog/archived/blog-post-template.md` — the archived example, kept in the collection with
+`draft: true` so it never builds or lists. Every `getCollection("blog")` call filters `!data.draft`; keep it
+that way. Assets live in their own folder per post: `public/blog/<slug>/` holding `<slug>.jpg` and
+`<slug>-audio.mp3`. One image (the hero, absolute path, no inline images), an audio player as the first body
+element above the intro, `##` sections only. Narration is Hermes TTS converted to mp3. Topic ideas in
 `BLOG_IDEAS.md`. Do not publish posts unasked.
 
 ## Open items

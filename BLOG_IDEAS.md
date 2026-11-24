@@ -1,7 +1,7 @@
 # Blog ideas
 
-Candidate posts for the blog, grouped by category. Nothing here is published yet.
-Ordered roughly by how much a technical reader (and a hiring manager) rewards it.
+Candidate posts for the blog, grouped by category. Order roughly by how much a technical
+reader (and a hiring manager) rewards it.
 
 Source material: Hades/Olympus (LLM crawling in Palantir Foundry, 2026), Artemis/Apollo
 (dynamic crawling platform at Ringier, 4 years), iRIS (refinery modernisation, 3 years),
